@@ -24,6 +24,12 @@
     "mmenu-light": "^3.0.9",
     "sweetalert2": "^11.26.17"
   },
+  "pnpm": {
+    "overrides": {
+      "@salla.sa/ui-google-map-render": "file:./stubs/ui-google-map-render",
+      "@salla.sa/ui-address-autocomplete-widget": "file:./stubs/ui-address-autocomplete-widget"
+    }
+  },
   "devDependencies": {
     "@babel/core": "^7.29.0",
     "@babel/plugin-transform-runtime": "^7.29.0",

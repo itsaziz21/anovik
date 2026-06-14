@@ -4,6 +4,10 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  '@salla.sa/ui-google-map-render': file:./stubs/ui-google-map-render
+  '@salla.sa/ui-address-autocomplete-widget': file:./stubs/ui-address-autocomplete-widget
+
 importers:
 
   .:
@@ -37,14 +41,14 @@ importers:
         specifier: ^7.29.2
         version: 7.29.2(@babel/core@7.29.0)
       '@salla.sa/twilight':
-        specifier: ^2.14.457
-        version: 2.14.457(@jitsu/protocols@1.10.4)(@types/dlv@1.1.5)(webpack@5.107.1)
+        specifier: ^2.14.466
+        version: 2.14.467(@jitsu/protocols@1.10.4)(@types/dlv@1.1.5)(webpack@5.107.1)
       '@salla.sa/twilight-components':
-        specifier: ^2.14.457
-        version: 2.14.457(@jitsu/protocols@1.10.4)(@types/dlv@1.1.5)(lit@3.3.3)(webpack@5.107.1)
+        specifier: ^2.14.466
+        version: 2.14.467(@jitsu/protocols@1.10.4)(@types/dlv@1.1.5)(webpack@5.107.1)
       '@salla.sa/twilight-tailwind-theme':
-        specifier: ^2.14.457
-        version: 2.14.457
+        specifier: ^2.14.466
+        version: 2.14.467
       '@tailwindcss/forms':
         specifier: ^0.5.11
         version: 0.5.11(tailwindcss@3.4.19)
@@ -882,12 +886,6 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@lit-labs/ssr-dom-shim@1.6.0':
-    resolution: {integrity: sha512-VHb0ALPMTlgKjM6yIxxoQNnpKyUKLD04VzeQdsiXkMqkvYlAHxq9glGLmgbb889/1GsohSOAjvQYoiBppXFqrQ==}
-
-  '@lit/reactive-element@2.1.2':
-    resolution: {integrity: sha512-pbCDiVMnne1lYUIaYNN5wrwQXDtHaYtg7YEFPeW+hws6U47WeFvISGUWekPGKWOP1ygrs0ef0o1VJMk1exos5A==}
-
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
     engines: {node: '>= 8'}
@@ -929,36 +927,42 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [arm]
     os: [linux]
+    libc: [glibc]
 
   '@parcel/watcher-linux-arm-musl@2.5.6':
     resolution: {integrity: sha512-Ve3gUCG57nuUUSyjBq/MAM0CzArtuIOxsBdQ+ftz6ho8n7s1i9E1Nmk/xmP323r2YL0SONs1EuwqBp2u1k5fxg==}
     engines: {node: '>= 10.0.0'}
     cpu: [arm]
     os: [linux]
+    libc: [musl]
 
   '@parcel/watcher-linux-arm64-glibc@2.5.6':
     resolution: {integrity: sha512-f2g/DT3NhGPdBmMWYoxixqYr3v/UXcmLOYy16Bx0TM20Tchduwr4EaCbmxh1321TABqPGDpS8D/ggOTaljijOA==}
     engines: {node: '>= 10.0.0'}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
 
   '@parcel/watcher-linux-arm64-musl@2.5.6':
     resolution: {integrity: sha512-qb6naMDGlbCwdhLj6hgoVKJl2odL34z2sqkC7Z6kzir8b5W65WYDpLB6R06KabvZdgoHI/zxke4b3zR0wAbDTA==}
     engines: {node: '>= 10.0.0'}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
 
   '@parcel/watcher-linux-x64-glibc@2.5.6':
     resolution: {integrity: sha512-kbT5wvNQlx7NaGjzPFu8nVIW1rWqV780O7ZtkjuWaPUgpv2NMFpjYERVi0UYj1msZNyCzGlaCWEtzc+exjMGbQ==}
     engines: {node: '>= 10.0.0'}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
 
   '@parcel/watcher-linux-x64-musl@2.5.6':
     resolution: {integrity: sha512-1JRFeC+h7RdXwldHzTsmdtYR/Ku8SylLgTU/reMuqdVD7CtLwf0VR1FqeprZ0eHQkO0vqsbvFLXUmYm/uNKJBg==}
     engines: {node: '>= 10.0.0'}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
 
   '@parcel/watcher-win32-arm64@2.5.6':
     resolution: {integrity: sha512-3ukyebjc6eGlw9yRt678DxVF7rjXatWiHvTXqphZLvo7aC5NdEgFufVwjFfY51ijYEWpXbqF5jtrK275z52D4Q==}
@@ -982,37 +986,28 @@ packages:
     resolution: {integrity: sha512-tmmZ3lQxAe/k/+rNnXQRawJ4NjxO2hqiOLTHvWchtGZULp4RyFeh6aU4XdOYBFe2KE1oShQTv4AblOs2iOrNnQ==}
     engines: {node: '>= 10.0.0'}
 
-  '@salla.sa/applepay@2.14.457':
-    resolution: {integrity: sha512-wEMDehVyrzmD5V0ztTKqE61ONJ9kgbiHkSlGovIune01CnxdWr5+e9btg65DOswzTh5Z+Lo5j7HdINo9NG1ehA==}
+  '@salla.sa/applepay@2.14.467':
+    resolution: {integrity: sha512-CZjluqCI48EG74KXcE4hMvrXEd/b398iWuXbI3ADxrO2mjmM/jSshQjXJSeW23OAocUhw1aVx9DfpNuejzYvkg==}
 
-  '@salla.sa/base@2.14.457':
-    resolution: {integrity: sha512-kbuYF3X8Nw/F2V0ZDqwZx80B29R4SAHBPRsT0L1SpGQo0dG/Zlaj2s9AIP+SxKAQ5dsuE3AeUG78sMMVgsnMSQ==}
+  '@salla.sa/base@2.14.467':
+    resolution: {integrity: sha512-t1fCztQHQ+KFWvtUh5POOckcbUKB4GUeP5L9Ix7Ij45QVlWugcqsdRaPxmXs3LJ2oblB2UPdij5LvScugHDf0w==}
 
-  '@salla.sa/twilight-components@2.14.457':
-    resolution: {integrity: sha512-Zx7ZFyfn+XBBvHaw32RxOOcSYjM1YYHsd7YV6IKUz+xARoPr4hpMkqUJeaQvaTV/LFGl7mxMlzk9uEEULZzjjA==}
+  '@salla.sa/twilight-components@2.14.467':
+    resolution: {integrity: sha512-BVDbmmXTL5ZEzsJn6j/G+c0mM74es0PHbJPH86rnTtUsojj7WJ7SsWusmzqB71b9RBKxl5bX3RmoCj+b+2AV6w==}
 
-  '@salla.sa/twilight-tailwind-theme@2.14.457':
-    resolution: {integrity: sha512-7icbFVSUeJBdGEj+Jcg+43Cct9ekCVOeTbW76WHrViAvHNgjMBropsAN6n9kmaTl+BRtxp029U2lUja+CQc0Pw==}
+  '@salla.sa/twilight-tailwind-theme@2.14.467':
+    resolution: {integrity: sha512-AFp7IVger8t0Evjj6E+Ef4sjLReter2BgHT9pa2jz3fXsgLg8EAb6edvf5ZzVU8JCcQXB3JCLIi3lJmvftojYA==}
 
-  '@salla.sa/twilight@2.14.457':
-    resolution: {integrity: sha512-mXorkJuvtISKelE0aioQqTfwicngVBC3ba6Bo0y87YHN1ym6NigKlTtiu/KuBbtQBanCH1D7tGVk3no2fl6l8w==}
+  '@salla.sa/twilight@2.14.467':
+    resolution: {integrity: sha512-S4IMiue4+ZKsm0YGYUTrLPS2BNHpvB933kcMz+S9AdgBCfbGVDqktmuu2nHL0l4OPW7jx2VKKTt/jjsmR8QVeQ==}
     peerDependencies:
       webpack: ^4 || ^5
 
-  '@salla.sa/ui-address-autocomplete-widget@1.2.1':
-    resolution: {integrity: sha512-T6XD2RQpE2eJZVZuflv54n54W/nw5ujtQjjF17/nqeXEsSwSC9zs3qKJAgSwKm/T1RuZWXrbfQCzdbNANDJX+Q==}
+  '@salla.sa/ui-address-autocomplete-widget@file:stubs/ui-address-autocomplete-widget':
+    resolution: {directory: stubs/ui-address-autocomplete-widget, type: directory}
 
-  '@salla.sa/ui-google-map-render@1.2.1':
-    resolution: {integrity: sha512-rWkBbfKl5q8RzjnowI/WBiTEyt0PnDTYTUbjEVYpcA41yR8IDUlCWqHxGgWnFw4WkTUuLhO0F/x0jCGhvE0fPA==}
-    peerDependencies:
-      '@googlemaps/markerclusterer': ^2.6.2
-      '@salla.sa/ui-address-autocomplete-widget': ^1.0
-      lit: ^3.3.2
-    peerDependenciesMeta:
-      '@googlemaps/markerclusterer':
-        optional: true
-      '@salla.sa/ui-address-autocomplete-widget':
-        optional: true
+  '@salla.sa/ui-google-map-render@file:stubs/ui-google-map-render':
+    resolution: {directory: stubs/ui-google-map-render, type: directory}
 
   '@sinclair/typebox@0.27.8':
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
@@ -1074,9 +1069,6 @@ packages:
 
   '@types/supercluster@7.1.3':
     resolution: {integrity: sha512-Z0pOY34GDFl3Q6hUFYf3HkTwKEE02e7QgtJppBt+beEAxnyOpJua+voGFvxINBHa06GwLFFym7gRPY2SiKIfIA==}
-
-  '@types/trusted-types@2.0.7':
-    resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
 
   '@types/yargs-parser@21.0.3':
     resolution: {integrity: sha512-I4q9QU9MQv4oEOz4tAHJtNz1cwuLxn2F3xcc2iV5WdqLPpUnj30aUuxt1mAxYTG+oe8CZMV/+6rU4S4gRDzqtQ==}
@@ -1981,15 +1973,6 @@ packages:
 
   lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
-
-  lit-element@4.2.2:
-    resolution: {integrity: sha512-aFKhNToWxoyhkNDmWZwEva2SlQia+jfG0fjIWV//YeTaWrVnOxD89dPKfigCUspXFmjzOEUQpOkejH5Ly6sG0w==}
-
-  lit-html@3.3.3:
-    resolution: {integrity: sha512-el8M6jK2o3RXBnrSHX3ZKrsN8zEV63pSExTO1wYJz7QndGYZ8353e2a5PPX+qHe2aGayfnchQmkAojaWAREOIA==}
-
-  lit@3.3.3:
-    resolution: {integrity: sha512-fycuvZg/hkpozL00lm1pEJH5nN/lr9ZXd6mJI2HSN4+Bzc+LDNdEApJ6HFbPkdFNHLvOplIIuJvxkS4XUxqirw==}
 
   lite-youtube-embed@0.2.0:
     resolution: {integrity: sha512-XXXAk5sbvtjjwbie3XG+6HppgTm1HTGL/Uk9z9NkJH53o7puZLur434heHzAjkS60hZB3vT4ls25zl5rMiX4EA==}
@@ -3985,12 +3968,6 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@lit-labs/ssr-dom-shim@1.6.0': {}
-
-  '@lit/reactive-element@2.1.2':
-    dependencies:
-      '@lit-labs/ssr-dom-shim': 1.6.0
-
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
       '@nodelib/fs.stat': 2.0.5
@@ -4064,27 +4041,27 @@ snapshots:
       '@parcel/watcher-win32-x64': 2.5.6
     optional: true
 
-  '@salla.sa/applepay@2.14.457':
+  '@salla.sa/applepay@2.14.467':
     dependencies:
       axios: 1.15.0
     transitivePeerDependencies:
       - debug
 
-  '@salla.sa/base@2.14.457':
+  '@salla.sa/base@2.14.467':
     dependencies:
       '@types/applepayjs': 14.0.9
       eventemitter2: 6.4.9
       lodash: 4.18.1
       store: 2.0.12
 
-  '@salla.sa/twilight-components@2.14.457(@jitsu/protocols@1.10.4)(@types/dlv@1.1.5)(lit@3.3.3)(webpack@5.107.1)':
+  '@salla.sa/twilight-components@2.14.467(@jitsu/protocols@1.10.4)(@types/dlv@1.1.5)(webpack@5.107.1)':
     dependencies:
       '@googlemaps/markerclusterer': 2.6.2
-      '@salla.sa/applepay': 2.14.457
-      '@salla.sa/twilight': 2.14.457(@jitsu/protocols@1.10.4)(@types/dlv@1.1.5)(webpack@5.107.1)
-      '@salla.sa/twilight-tailwind-theme': 2.14.457
-      '@salla.sa/ui-address-autocomplete-widget': 1.2.1
-      '@salla.sa/ui-google-map-render': 1.2.1(@googlemaps/markerclusterer@2.6.2)(@salla.sa/ui-address-autocomplete-widget@1.2.1)(lit@3.3.3)
+      '@salla.sa/applepay': 2.14.467
+      '@salla.sa/twilight': 2.14.467(@jitsu/protocols@1.10.4)(@types/dlv@1.1.5)(webpack@5.107.1)
+      '@salla.sa/twilight-tailwind-theme': 2.14.467
+      '@salla.sa/ui-address-autocomplete-widget': file:stubs/ui-address-autocomplete-widget
+      '@salla.sa/ui-google-map-render': file:stubs/ui-google-map-render
       '@types/node': 20.19.39
       animejs: 3.2.2
       class-variance-authority: 0.7.0
@@ -4106,16 +4083,15 @@ snapshots:
       - '@jitsu/protocols'
       - '@types/dlv'
       - debug
-      - lit
       - supports-color
       - webpack
 
-  '@salla.sa/twilight-tailwind-theme@2.14.457': {}
+  '@salla.sa/twilight-tailwind-theme@2.14.467': {}
 
-  '@salla.sa/twilight@2.14.457(@jitsu/protocols@1.10.4)(@types/dlv@1.1.5)(webpack@5.107.1)':
+  '@salla.sa/twilight@2.14.467(@jitsu/protocols@1.10.4)(@types/dlv@1.1.5)(webpack@5.107.1)':
     dependencies:
       '@jitsu/js': 1.10.4(@jitsu/protocols@1.10.4)(@types/dlv@1.1.5)
-      '@salla.sa/base': 2.14.457
+      '@salla.sa/base': 2.14.467
       axios: 1.15.0
       infinite-scroll: 4.0.1
       jwt-decode: 4.0.0
@@ -4128,16 +4104,9 @@ snapshots:
       - debug
       - supports-color
 
-  '@salla.sa/ui-address-autocomplete-widget@1.2.1':
-    dependencies:
-      lit: 3.3.3
+  '@salla.sa/ui-address-autocomplete-widget@file:stubs/ui-address-autocomplete-widget': {}
 
-  '@salla.sa/ui-google-map-render@1.2.1(@googlemaps/markerclusterer@2.6.2)(@salla.sa/ui-address-autocomplete-widget@1.2.1)(lit@3.3.3)':
-    dependencies:
-      lit: 3.3.3
-    optionalDependencies:
-      '@googlemaps/markerclusterer': 2.6.2
-      '@salla.sa/ui-address-autocomplete-widget': 1.2.1
+  '@salla.sa/ui-google-map-render@file:stubs/ui-google-map-render': {}
 
   '@sinclair/typebox@0.27.8': {}
 
@@ -4194,8 +4163,6 @@ snapshots:
   '@types/supercluster@7.1.3':
     dependencies:
       '@types/geojson': 7946.0.16
-
-  '@types/trusted-types@2.0.7': {}
 
   '@types/yargs-parser@21.0.3': {}
 
@@ -5092,22 +5059,6 @@ snapshots:
   lilconfig@3.1.3: {}
 
   lines-and-columns@1.2.4: {}
-
-  lit-element@4.2.2:
-    dependencies:
-      '@lit-labs/ssr-dom-shim': 1.6.0
-      '@lit/reactive-element': 2.1.2
-      lit-html: 3.3.3
-
-  lit-html@3.3.3:
-    dependencies:
-      '@types/trusted-types': 2.0.7
-
-  lit@3.3.3:
-    dependencies:
-      '@lit/reactive-element': 2.1.2
-      lit-element: 4.2.2
-      lit-html: 3.3.3
 
   lite-youtube-embed@0.2.0: {}
 
