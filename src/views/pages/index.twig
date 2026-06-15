@@ -1,7 +1,7 @@
 {% extends "layouts.master" %}
 {% block content %}
 
-  {# ===== HERO ===== #}
+  {# ===== HERO - دايماً يظهر ===== #}
   <section class="anovik-hero">
     <div class="anovik-hero__glow anovik-hero__glow--purple"></div>
     <div class="anovik-hero__glow anovik-hero__glow--blue"></div>
@@ -21,44 +21,15 @@
       <div class="anovik-hero__actions">
         <a href="{{ link('products') }}" class="anovik-btn-primary">
           تصفح التويكات
-          <i class="sicon-arrow-left anovik-btn-icon"></i>
+          <i class="sicon-arrow-left"></i>
         </a>
       </div>
     </div>
     <div class="anovik-hero__bottom-fade"></div>
   </section>
 
-  {# ===== الأكثر مبيعاً ===== #}
-  <section class="anovik-featured-section container">
-    <div class="anovik-section-header">
-      <div class="anovik-section-badge anovik-section-badge--fire">
-        <i class="sicon-star-full"></i>
-        الأكثر مبيعاً
-      </div>
-      <div class="anovik-section-divider"></div>
-    </div>
-    <salla-products-list
-      source="most_sales"
-      limit="1"
-      class="anovik-featured-product-list"
-    ></salla-products-list>
-  </section>
-
-  {# ===== بعض منتجاتنا ===== #}
-  <section class="anovik-products-section container">
-    <div class="anovik-section-header">
-      <div class="anovik-section-badge">
-        <i class="sicon-shopping-bag"></i>
-        بعض منتجاتنا
-      </div>
-      <div class="anovik-section-divider"></div>
-    </div>
-    <salla-products-list
-      source="latest_products"
-      limit="3"
-      class="anovik-products-list"
-    ></salla-products-list>
-  </section>
+  {# ===== مكونات الصفحة الرئيسية (تُضاف من Partners Portal) ===== #}
+  {% component home %}
 
 {% endblock %}
 {% block scripts %}
