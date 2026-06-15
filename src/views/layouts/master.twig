@@ -86,10 +86,14 @@
     <style>
         :root {
             --font-main: '{{theme.font.name}}';
-            --color-primary: {{ theme.color.primary }};
-            --color-primary-dark: {{ theme.color.darker(0.15) }};
-            --color-primary-light: {{ theme.color.lighter(0.15) }};
-            --color-primary-reverse: {{ theme.color.reverse_text }};
+            --color-primary: #7c3aed;
+            --color-primary-dark: #5b21b6;
+            --color-primary-light: rgba(124,58,237,0.15);
+            --color-primary-reverse: #ffffff;
+        }
+        html, body {
+            background-color: #07091a;
+            color: #e2e8f0;
         }
     </style>
     {# tracking services, custom css feature. #}

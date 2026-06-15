@@ -1,49 +1,85 @@
+/* ===== ANOVIK DARK FOOTER ===== */
 
 .store-footer {
-  @apply relative bg-darker text-white mt-8 sm:mt-16;
+  background: #04060f;
+  color: #e2e8f0;
+  margin-top: 80px;
+  position: relative;
+  overflow: hidden;
 
-  a{
-    @apply transition-opacity hover:opacity-75;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(124, 58, 237, 0.6) 30%,
+      rgba(59, 130, 246, 0.5) 70%,
+      transparent 100%
+    );
   }
 
-  &__inner{
-    @apply bg-dark py-8 lg:py-16 border-b border-dashed border-b-white/10;
-  }  
+  a {
+    color: #94a3b8;
+    transition: color 0.2s;
 
-  h3{
-    @apply text-lg font-bold mb-3 lg:mb-5;
+    &:hover {
+      color: #a78bfa;
+      opacity: 1;
+    }
+  }
+
+  &__inner {
+    background: transparent;
+    padding: 56px 0;
+    border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #e2e8f0;
   }
 
   .social-link {
-    @apply border rounded-full w-8 h-8 justify-center flex items-center hover:opacity-75 transition duration-300 text-sm
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    border-radius: 999px;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #a78bfa;
+    font-size: 0.85rem;
+    transition: all 0.25s;
+
+    &:hover {
+      background: rgba(124, 58, 237, 0.2);
+      border-color: rgba(124, 58, 237, 0.6);
+      color: #fff;
+    }
   }
 
-  .contact-social{
-    @apply mt-5 pt-5 border-t border-white/10;
+  .contact-social {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(124, 58, 237, 0.1);
 
     ul {
-      @apply mb-0;
-    }
-  }
-
-  .footer-is-light & {
-    @apply bg-gray-50 text-gray-700;
-
-    .store-footer__inner {
-      @apply bg-gray-100 border-b-gray-200;
-    }
-
-    .social-link {
-      @apply border-gray-300;
-    }
-
-    .contact-social{
-      @apply border-gray-100;
+      margin-bottom: 0;
     }
   }
 }
 
+.copyright-text {
+  color: #475569;
+  font-size: 0.8rem;
 
-.copyright-text p{
-  @apply text-gray-700;
+  p {
+    color: inherit;
+  }
 }

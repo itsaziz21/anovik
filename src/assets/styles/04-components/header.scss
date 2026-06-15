@@ -1,264 +1,236 @@
+/* ===== ANOVIK DARK HEADER ===== */
 
-/* Top Nav */
-.top-navbar {
-  @apply flex py-2 min-h-[48px];
+.anovik-header {
+  position: relative;
+  z-index: 100;
 
-  @screen lg {
-    @apply py-1.5;
+  &__topbar {
+    background: rgba(7, 9, 26, 0.95);
+    border-bottom: 1px solid rgba(124, 58, 237, 0.12);
+    padding: 8px 0;
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #94a3b8);
   }
 
-  .topnav-has-bg & {
-    @apply bg-[color:var(--topnav-bg)];
+  &__main {
+    background: rgba(7, 9, 26, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(124, 58, 237, 0.18);
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    min-height: 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
-  .topnav-has-gradient & {
-    @apply bg-gradient-to-r from-[color:var(--topnav-gradient-from)] to-[color:var(--topnav-gradient-to)];
+  &__inner {
+    padding: 12px 0;
   }
 
-  .topnav-has-text-color & {
-    @apply text-[color:var(--topnav-text-color)];
+  &__glow-line {
+    position: absolute;
+    bottom: -1px;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(124, 58, 237, 0.6) 30%,
+      rgba(59, 130, 246, 0.6) 70%,
+      transparent 100%
+    );
   }
 
-  .s-search-input{
-    @apply bg-gray-200/50 hover:bg-gray-200/70 border-none;
-  }
+  &.fixed-pinned .inner,
+  &.fixed-header .inner {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    box-shadow: 0 4px 30px rgba(7, 9, 26, 0.9);
+    background: rgba(7, 9, 26, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transform: translate3d(0, -100%, 0);
 
-  @media (max-width: 640px) {
-    .s-search-results{
-      @apply w-screen max-w-[100vw] rtl:-left-2.5 ltr:-right-2.5; 
-    }
-  } 
-
-  .topnav-is-dark & {
-    @apply bg-dark text-gray-300;
-
-    .btn--circle-gray,
-    .btn--rounded-gray,
-    .s-search-input{
-      @apply bg-gray-100/10 hover:bg-gray-100/[0.15]
-    }
-
-    .topnav-link-item{
-      @apply border-gray-300/10;
-    }
-
-    .s-search-input{
-      @apply text-white;
-    }
-  }
-
-  .search-btn{
-    @apply grow sm:grow-0 justify-start md:justify-center;
-  }
-}
-
-// contacs menu items - pages menu items
-.topnav-link-item{
-  @apply inline-block transition duration-300 px-4 rtl:last:pl-0 ltr:last:pr-0 py-px text-sm leading-none ltr:border-r rtl:border-l border-gray-200 ltr:last:border-0 rtl:last:border-0 hover:opacity-80;
-
-  &.right-side{
-    @apply rtl:first:pr-0 ltr:first:pl-0
-  }
-}
-
-/* Main Nav */
-.main-nav-container {
-  @apply min-h-[68px] lg:min-h-[84px];
-  
-  // Custom background Color
-  .has-bg &,
-  .has-bg & .sub-menu{
-    @apply bg-[color:var(--mainnav-bg)];
-  }
-
-  // Custom text color
-  .has-text-color & {
-    @apply text-[color:var(--mainnav-text-color)];
-  }
-}
-
-.menu-item {
-  @apply flex items-center px-6 py-2.5 sm:text-sm text-gray-500 transition-colors duration-300 hover:bg-gray-200/30;
-
-  &.logout{
-    @apply text-red-400;
-  }
-
-  &.is-active{
-    @apply text-primary bg-gray-200/20;
-  }
-}
-
-/* Sticky Header */
-.main-nav-container {
-  &.animated {
-    .inner {
-      transition: top 0.5s, transform 0.5s, -webkit-transform 0.5s, opacity 0.4s;
+    @media (max-width: 1024px) {
+      transform: none;
+      top: -80px;
     }
   }
 
-  &.fixed-pinned {
-    .inner {
-      position: fixed;
+  &.fixed-header .inner {
+    transform: translate3d(0, 0, 0);
+
+    @media (max-width: 1024px) {
+      transform: none;
       top: 0;
-      right: 0;
-      left: 0;
-      width: 100%;
-      z-index: 29;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-      transform: translate3d(0, -100%, 0);
-
-      @media (max-width: 1024px){
-        transform: none;
-        top: -70px;
-      }
-    }
-
-    .navbar-brand {
-      img {
-        max-height: 40px;
-      }
-
-      h4 {
-        line-height: 1;
-      }
-    }
-
-    .main-menu > li > a {
-      padding-top: 20px;
-      padding-bottom: 20px;
-    }
-  }
-
-  &.fixed-header {
-    .inner {
-      transform: translate3d(0, 0, 0);
-
-      @media (max-width: 1024px){
-        transform: none;
-        top: 0;
-      }
     }
   }
 }
 
-.navbar-brand {
-  @apply items-center flex my-2 lg:my-0;
+/* Logo */
+.anovik-logo {
+  display: flex;
+  align-items: center;
 
   img {
-    @apply w-auto max-h-12 max-w-[100px] xs:max-w-[170px];
+    max-height: 48px;
+    max-width: 160px;
+    width: auto;
+    filter: brightness(1.1);
   }
 }
 
-// Mainnav cart icon
-.header-btn{
-  @apply border-none outline-none transition-opacity hover:opacity-80;
+/* Mobile menu toggle */
+.anovik-menu-toggle {
+  color: var(--color-purple-light, #a78bfa);
+  font-size: 1.4rem;
+  line-height: 1;
+  padding: 4px;
+  transition: color 0.2s;
 
-  &__icon{
-    @apply text-xl w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-700;
-    &.icon{
-      @apply mr-[9px] rtl:ml-[9px] rtl:mr-[unset];
+  &:hover {
+    color: #fff;
+  }
+}
+
+/* Scope button */
+.anovik-scope-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  color: #a78bfa;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+  background: transparent;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(124, 58, 237, 0.15);
+    border-color: rgba(124, 58, 237, 0.5);
+  }
+}
+
+/* Search */
+.anovik-header-search {
+  .s-search-input {
+    background: rgba(255, 255, 255, 0.07) !important;
+    border: 1px solid rgba(124, 58, 237, 0.2) !important;
+    color: #e2e8f0 !important;
+    border-radius: 999px;
+    transition: all 0.2s;
+
+    &:focus-within {
+      border-color: rgba(124, 58, 237, 0.5) !important;
+      background: rgba(124, 58, 237, 0.08) !important;
     }
   }
+
+  .s-search-results {
+    background: #0c1028;
+    border: 1px solid rgba(124, 58, 237, 0.25);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(7, 9, 26, 0.8);
+    z-index: 200;
+  }
 }
 
-.header-buttons .sicon-sar {
-  width: 0.65rem;
-  display: inline-block;
-min-height: 1.4rem;
+/* Cart button */
+.anovik-cart-btn {
+  min-width: 73px;
+  min-height: 40px;
 }
 
-#mainnav .sicon-menu {
-  width: 1rem;
-  display: inline-block
+.s-cart-summary-total {
+  color: #e2e8f0;
+  font-weight: 600;
 }
 
+.s-cart-summary-count {
+  top: -2px;
+  background: var(--color-purple, #7c3aed);
+}
+
+/* Main menu navigation */
 custom-main-menu {
-  min-height: 84px
+  min-height: 72px;
 }
 
 salla-cart-summary {
   min-width: 73px;
-  min-height: 40px
-}
-salla-user-menu{
-  @apply shrink-0;
+  min-height: 40px;
 }
 
-// cart summary
-.s-cart-summary-total{
-  @apply text-black font-[600];
+salla-user-menu {
+  flex-shrink: 0;
 }
 
-.s-cart-summary-count{
-  @apply -top-0.5 ltr:-left-1.5 rtl:-right-1.5 bg-red-800;
-}
+/* Menu items (desktop) */
+.menu-item {
+  color: #94a3b8;
+  padding: 8px 16px;
+  transition: all 0.2s;
+  border-radius: 8px;
+  font-size: 0.9rem;
 
-#nav-cart{
-  @apply flex items-center rtl:mr-4 ltr:ml-4 relative whitespace-nowrap;
-
-  .icon{
-    @apply rtl:ml-2 ltr:mr-2;
+  &:hover {
+    color: #e2e8f0;
+    background: rgba(124, 58, 237, 0.1);
   }
 
-  span{
-    @apply absolute top-1 rtl:-right-2 ltr:-left-2;
+  &.is-active {
+    color: #a78bfa;
+    background: rgba(124, 58, 237, 0.12);
   }
-}
 
-
-// Search
-.header-search{
-  .s-search-results{
-    @apply z-10;
+  &.logout {
+    color: #f87171;
   }
 }
 
-
-/* ============================
-   Menu Skeletons (loading state)
-
-   Only the two menus need a placeholder — they wait on an API request.
-   The other Salla components (search, lang/currency, contacts) render
-   their content synchronously and don't need a skeleton.
-
-   - Top-nav menu : CSS-only via salla-menu[topnav]:not(.hydrated) pseudos
-   - Main menu    : initial innerHTML seeded by NavigationMenu, replaced
-                    when render() runs (`.main-menu-skel` block)
-   ============================ */
-
+/* Skeleton loaders */
 @keyframes header-skel-shimmer {
   0%   { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }
 
 %header-skel-shimmer {
-  background-color: rgba(0, 0, 0, 0.06);
+  background-color: rgba(255, 255, 255, 0.05);
   background-image: linear-gradient(
     90deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.08) 50%,
-    rgba(0, 0, 0, 0) 100%
+    rgba(255, 255, 255, 0) 0%,
+    rgba(124, 58, 237, 0.12) 50%,
+    rgba(255, 255, 255, 0) 100%
   );
   background-size: 200% 100%;
   background-repeat: no-repeat;
   animation: header-skel-shimmer 1.4s ease-in-out infinite;
 }
 
-// ── Top-nav menu — pure CSS via pseudo-elements ─────────────────
-// Stencil hides every <salla-*> with `visibility:hidden` until the
-// `.hydrated` class is added (which restores visibility: inherit).
-// Override that for our pre-hydration state so the pseudo-element
-// pills are actually visible.
 salla-menu[topnav]:not(.hydrated) {
-  @apply hidden lg:inline-flex items-center gap-2;
-  visibility: visible;
+  display: none;
 
-  &::before,
-  &::after {
+  @screen lg {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    visibility: visible;
+  }
+
+  &::before, &::after {
     @extend %header-skel-shimmer;
     content: '';
-    @apply inline-block rounded-full;
+    display: inline-block;
+    border-radius: 999px;
     height: 12px;
   }
 
@@ -266,30 +238,22 @@ salla-menu[topnav]:not(.hydrated) {
   &::after  { width: 50px; }
 }
 
-// ── Main menu — DOM seeded by NavigationMenu ────────────────────
 .main-menu-skel {
-  @apply hidden lg:inline-flex items-center gap-4 mx-6 py-8;
+  display: none;
+
+  @screen lg {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    margin: 0 24px;
+    padding: 20px 0;
+  }
 }
 
 .header-skel-item {
   @extend %header-skel-shimmer;
-  @apply inline-block rounded-full;
+  display: inline-block;
+  border-radius: 999px;
   height: 14px;
   width: 80px;
-}
-
-.header-skel-item--menu { height: 14px; width: 80px; }
-
-// ── Dark topnav variant — lift contrast on dark backgrounds ─────
-.topnav-is-dark {
-  .top-navbar salla-menu[topnav]:not(.hydrated)::before,
-  .top-navbar salla-menu[topnav]:not(.hydrated)::after {
-    background-color: rgba(255, 255, 255, 0.08);
-    background-image: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.14) 50%,
-      rgba(255, 255, 255, 0) 100%
-    );
-  }
 }

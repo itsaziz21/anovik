@@ -1,14 +1,66 @@
-{#
-| Variable         | Type       | Description                                                         |
-|------------------|------------|---------------------------------------------------------------------|
-| page             | object     |                                                                     |
-| page.title       | string     | *could be html                                                      |
-| page.slug        | string     | ex: "cat.show"                                                      |
-#}
 {% extends "layouts.master" %}
 {% block content %}
-    {% component home %}
+
+  {# ===== HERO ===== #}
+  <section class="anovik-hero">
+    <div class="anovik-hero__glow anovik-hero__glow--purple"></div>
+    <div class="anovik-hero__glow anovik-hero__glow--blue"></div>
+    <div class="anovik-hero__grid"></div>
+    <div class="container anovik-hero__content">
+      <div class="anovik-hero__badge">
+        <span class="anovik-badge-pulse"></span>
+        تحسين أداء احترافي
+      </div>
+      <h1 class="anovik-hero__title">
+        جهازك يستحق
+        <span class="anovik-hero__title-gradient">أقصى أداء</span>
+      </h1>
+      <p class="anovik-hero__subtitle">
+        تويكات متخصصة لرفع كفاءة جهازك وتعزيز تجربتك إلى مستوى آخر
+      </p>
+      <div class="anovik-hero__actions">
+        <a href="{{ link('products') }}" class="anovik-btn-primary">
+          تصفح التويكات
+          <i class="sicon-arrow-left anovik-btn-icon"></i>
+        </a>
+      </div>
+    </div>
+    <div class="anovik-hero__bottom-fade"></div>
+  </section>
+
+  {# ===== الأكثر مبيعاً ===== #}
+  <section class="anovik-featured-section container">
+    <div class="anovik-section-header">
+      <div class="anovik-section-badge anovik-section-badge--fire">
+        <i class="sicon-star-full"></i>
+        الأكثر مبيعاً
+      </div>
+      <div class="anovik-section-divider"></div>
+    </div>
+    <salla-products-list
+      source="most_sales"
+      limit="1"
+      class="anovik-featured-product-list"
+    ></salla-products-list>
+  </section>
+
+  {# ===== بعض منتجاتنا ===== #}
+  <section class="anovik-products-section container">
+    <div class="anovik-section-header">
+      <div class="anovik-section-badge">
+        <i class="sicon-shopping-bag"></i>
+        بعض منتجاتنا
+      </div>
+      <div class="anovik-section-divider"></div>
+    </div>
+    <salla-products-list
+      source="latest_products"
+      limit="3"
+      class="anovik-products-list"
+    ></salla-products-list>
+  </section>
+
 {% endblock %}
 {% block scripts %}
-    <script defer src="{{ 'home.js' | asset }}"></script>
+  <script defer src="{{ 'home.js' | asset }}"></script>
 {% endblock %}

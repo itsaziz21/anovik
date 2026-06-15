@@ -5,25 +5,54 @@ $infinte-color: var(--infinte-color);
 $main-text-color: var(--main-text-color);
 
 :root {
-  --infinte-color: #c9c9c9;
-  --main-text-color: #231f1e;
-  --main-text-color-dark: #2b2d34;
+  /* ===== Dark Purple/Blue Palette ===== */
+  --color-bg:          #07091a;
+  --color-surface:     #0c1028;
+  --color-card:        #101428;
+  --color-card-hover:  #141830;
 
-  /* current */
-  --color-primary: #5cd5c4;
-  --color-primary: #414042;
-  --color-primary-d: #272628;
-  --color-primary-l: #676668;
-  --color-primary-reverse: #ff6767;
-  --color-text: #7c8082;
-  --bg-gray: #c6c7ce1a;
-  --color-grey: #f5f7f9;
-  --color-light-grey: #eeeeee;
+  --color-purple:      #7c3aed;
+  --color-purple-dim:  rgba(124, 58, 237, 0.15);
+  --color-purple-glow: rgba(124, 58, 237, 0.5);
+
+  --color-blue:        #3b82f6;
+  --color-blue-dim:    rgba(59, 130, 246, 0.15);
+  --color-blue-glow:   rgba(59, 130, 246, 0.45);
+
+  --color-gradient:    linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
+  --color-gradient-dim: linear-gradient(135deg, rgba(124,58,237,0.2) 0%, rgba(59,130,246,0.2) 100%);
+
+  --color-border:      rgba(124, 58, 237, 0.25);
+  --color-border-blue: rgba(59, 130, 246, 0.25);
+
+  --color-text-primary: #e2e8f0;
+  --color-text-muted:   #94a3b8;
+
+  /* ===== Keep existing vars for Salla components ===== */
+  --infinte-color:     #a78bfa;
+  --main-text-color:   #e2e8f0;
+  --main-text-color-dark: #f1f5f9;
+
+  --color-primary:     #7c3aed;
+  --color-primary-dark: #5b21b6;
+  --color-primary-d:   #5b21b6;
+  --color-primary-l:   #a78bfa;
+  --color-primary-light: rgba(124, 58, 237, 0.15);
+  --color-primary-reverse: #ffffff;
+
+  --color-text:        #94a3b8;
+  --bg-gray:           rgba(124, 58, 237, 0.08);
+  --color-grey:        #0c1028;
+  --color-light-grey:  #101428;
+
   /* font-size */
   --font-sm: 0.8685714286rem;
-  /* font-family: ; */
   --font-main: "DINNextLTArabic";
 
   /* plugins */
   --mm-ocd-width: calc(100% - 51px);
+  --mm-listitem-size: 56px;
+  --mm-color-background: #07091a;
+  --mm-color-text: #e2e8f0;
+  --mm-color-border: rgba(124, 58, 237, 0.2);
 }
