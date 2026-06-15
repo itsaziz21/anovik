@@ -1131,7 +1131,7 @@
             "key": "32ffdc18-199f-41f7-906c-7303f87efbb0",
             "title": {
                 "en": "most_sales",
-                "ar": "most_sales"
+                "ar": "الأكثر مبيعاً"
             },
             "icon": "sicon-store",
             "path": "component-fixed-products",
