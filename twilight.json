@@ -1126,6 +1126,16 @@
                     "maxLength": 30
                 }
             ]
+        },
+        {
+            "key": "32ffdc18-199f-41f7-906c-7303f87efbb0",
+            "title": {
+                "en": "most_sales",
+                "ar": "most_sales"
+            },
+            "icon": "sicon-store",
+            "path": "component-fixed-products",
+            "fields": []
         }
     ],
     "support_url": null,
