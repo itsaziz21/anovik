@@ -1020,7 +1020,47 @@
             "icon": "sicon-star-full",
             "path": "home.most-sold",
             "image": "https://cdn.salla.network/images/themes/raed/preview-images/brands.png?v=1.1",
-            "fields": []
+            "fields": [
+                {
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "عنوان القسم",
+                    "multilanguage": true,
+                    "value": "الأكثر مبيعاً",
+                    "required": false,
+                    "icon": "sicon-format-text-alt",
+                    "placeholder": "الأكثر مبيعاً",
+                    "minLength": 0,
+                    "maxLength": 100
+                },
+                {
+                    "id": "limit",
+                    "type": "number",
+                    "format": "integer",
+                    "label": "عدد المنتجات",
+                    "value": 1,
+                    "required": false,
+                    "icon": "sicon-pencil-ruler",
+                    "minimum": 1,
+                    "maximum": 6
+                },
+                {
+                    "id": "display_all_url",
+                    "type": "items",
+                    "format": "variable-list",
+                    "label": "رابط عرض الكل",
+                    "required": false,
+                    "icon": "sicon-link",
+                    "searchable": true,
+                    "source": "custom",
+                    "sources": [
+                        { "label": "تصنيف", "key": "categories", "value": "categories" },
+                        { "label": "المنتجات", "key": "products_link", "value": "products_link" },
+                        { "label": "رابط خارجي", "key": "custom", "value": "custom" }
+                    ]
+                }
+            ]
         },
         {
             "key": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
@@ -1031,7 +1071,47 @@
             "icon": "sicon-grid",
             "path": "home.our-products",
             "image": "https://cdn.salla.network/images/themes/raed/preview-images/brands.png?v=1.1",
-            "fields": []
+            "fields": [
+                {
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "عنوان القسم",
+                    "multilanguage": true,
+                    "value": "بعض منتجاتنا",
+                    "required": false,
+                    "icon": "sicon-format-text-alt",
+                    "placeholder": "بعض منتجاتنا",
+                    "minLength": 0,
+                    "maxLength": 100
+                },
+                {
+                    "id": "limit",
+                    "type": "number",
+                    "format": "integer",
+                    "label": "عدد المنتجات",
+                    "value": 3,
+                    "required": false,
+                    "icon": "sicon-pencil-ruler",
+                    "minimum": 1,
+                    "maximum": 12
+                },
+                {
+                    "id": "display_all_url",
+                    "type": "items",
+                    "format": "variable-list",
+                    "label": "رابط عرض الكل",
+                    "required": false,
+                    "icon": "sicon-link",
+                    "searchable": true,
+                    "source": "custom",
+                    "sources": [
+                        { "label": "تصنيف", "key": "categories", "value": "categories" },
+                        { "label": "المنتجات", "key": "products_link", "value": "products_link" },
+                        { "label": "رابط خارجي", "key": "custom", "value": "custom" }
+                    ]
+                }
+            ]
         },
         {
             "key": "541cc423-90c7-4230-8a33-a0342cfde4ad",

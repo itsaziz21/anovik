@@ -1,14 +1,18 @@
 <section class="s-block container anovik-our-products-section">
-  <div class="anovik-section-header">
-    <div class="anovik-section-badge">
-      <i class="sicon-grid"></i>
-      بعض منتجاتنا
+  {% if title %}
+  <div class="s-block__title">
+    <div class="right-side">
+      <h2>{{ title }}</h2>
     </div>
-    <div class="anovik-section-divider"></div>
+    {% if display_all_url %}
+      <a href="{{ display_all_url }}" class="s-block__display-all">
+        {{ trans('blocks.home.display_all') }} <i class="sicon-arrow-left"></i>
+      </a>
+    {% endif %}
   </div>
+  {% endif %}
   <salla-products-list
     source="latest_products"
-    limit="3"
-    class="anovik-our-products-list"
+    limit="{{ limit ?? 3 }}"
   ></salla-products-list>
 </section>
