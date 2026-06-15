@@ -1012,6 +1012,28 @@
             ]
         },
         {
+            "key": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+            "title": {
+                "en": "Most Sold Product",
+                "ar": "الأكثر مبيعاً"
+            },
+            "icon": "sicon-star-full",
+            "path": "home.most-sold",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/brands.png?v=1.1",
+            "fields": []
+        },
+        {
+            "key": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+            "title": {
+                "en": "Our Products",
+                "ar": "بعض منتجاتنا"
+            },
+            "icon": "sicon-grid",
+            "path": "home.our-products",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/brands.png?v=1.1",
+            "fields": []
+        },
+        {
             "key": "541cc423-90c7-4230-8a33-a0342cfde4ad",
             "title": {
                 "en": "Custom testimonials",

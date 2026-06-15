@@ -28759,6 +28759,58 @@ input[type=radio].sr-only:checked ~ div.s-block--slider-with-bg .slider-bg:befor
   flex-shrink: 0;
   animation: anovik-badge-pulse 2s ease-in-out infinite;
 }
+/* Section Header shared styles */
+.anovik-section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.anovik-section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: rgba(124, 58, 237, 0.15);
+  border: 1px solid rgba(124, 58, 237, 0.35);
+  color: #a78bfa;
+  font-size: 0.95rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.anovik-section-badge i {
+  font-size: 0.85em;
+}
+.anovik-section-badge--fire {
+  background: rgba(124, 58, 237, 0.2);
+  border-color: rgba(124, 58, 237, 0.5);
+  color: #c4b5fd;
+}
+.anovik-section-divider {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(124, 58, 237, 0.4) 0%, transparent 100%);
+}
+/* Most Sold section */
+.anovik-most-sold-section {
+  padding: 60px 0 40px;
+}
+.anovik-most-sold-section .anovik-most-sold-list {
+  display: block;
+}
+.anovik-most-sold-section .anovik-most-sold-list salla-product-card,
+.anovik-most-sold-section .anovik-most-sold-list .s-product-card {
+  max-width: 480px;
+  margin: 0 auto;
+}
+/* Our Products section */
+.anovik-our-products-section {
+  padding: 20px 0 80px;
+}
+.anovik-our-products-section .anovik-our-products-list {
+  display: block;
+}
 /* CTA Button */
 .anovik-btn-primary {
   color: #ffffff !important;
