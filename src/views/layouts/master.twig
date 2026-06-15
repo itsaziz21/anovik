@@ -83,21 +83,23 @@
     <link rel="stylesheet" href="{{ theme.font.path|cdn }}"/>
     <link rel="stylesheet" href="{{ 'fonts/sallaicons.css'|cdn }}"/>
     
+    {# tracking services, custom css feature. #}
+    {% hook 'head:end' %}
     <style>
         :root {
             --font-main: '{{theme.font.name}}';
-            --color-primary: #7c3aed;
+            --color-primary: #7c3aed !important;
             --color-primary-dark: #5b21b6;
             --color-primary-light: rgba(124,58,237,0.15);
             --color-primary-reverse: #ffffff;
+            --infinte-color: #a78bfa;
         }
         html, body {
             background-color: #07091a;
             color: #e2e8f0;
         }
+        a { color: inherit; }
     </style>
-    {# tracking services, custom css feature. #}
-    {% hook 'head:end' %}
 </head>
 <body id="app" class="theme-raed overflow-x-hidden {% hook 'body:classes' %}
   {{ theme.settings.get('footer_is_dark') ? ' footer-is-dark' : ' footer-is-light' }}
